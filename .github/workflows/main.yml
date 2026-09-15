@@ -45,7 +45,13 @@ jobs:
           COMPOSER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Apt install
-        run: sudo apt-get install -y gdb re2c
+        run: |
+          sudo apt-get update
+          for i in 1 2 3; do
+            sudo apt-get install -y gdb re2c && break
+            echo "apt-get install failed (attempt $i), retrying..."
+            sleep 5
+          done
 
       - name: Composer install
         run: composer install --prefer-source --no-scripts
