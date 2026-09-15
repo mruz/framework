@@ -115,10 +115,11 @@ class Websocket
      */
     public function receive(resource socket) -> string | boolean
     {
-        var opcode, length, tmp, buff, fin;
+        var opcode, length, tmp, buff, fin, e, s, t;
         boolean masked;
         string data, payload, mask;
-        int i;
+        int i, j;
+        char c, d, f, maskByte;
 
         let tmp = fread(socket, 2);
 
@@ -133,9 +134,6 @@ class Websocket
         if tmp === false || strlen(tmp) < 2 {
             return false;
         }
-
-        char d, f;
-        var e;
 
         let data = tmp,
             f = data[0],
@@ -194,15 +192,11 @@ class Websocket
             let data = (string) tmp;
 
             if masked {
-                int j;
-                char c, d;
-                var s, t;
-
                 for i, c in data {
                     let j = (int) (i % 4),
-                        d = mask[j],
+                        maskByte = mask[j],
                         s = (string) c,
-                        t = (string) d,
+                        t = (string) maskByte,
                         payload .= s ^ t;
                 }
             } else {
@@ -228,9 +222,10 @@ class Websocket
      */
     protected function encode(string data, string opcode = "text", boolean masked = true, boolean fin = true) -> string
     {
-        var length, binstr;
+        var length, binstr, s, t;
         string head;
-        int i;
+        int i, j;
+        char c, d;
 
         let length = strlen(data),
             head = "",
@@ -270,10 +265,6 @@ class Websocket
 
 
         if masked {
-            int j;
-            char c, d;
-            var s, t;
-
             for i, c in data {
                 let j = (int) (i % 4),
                     d = mask[j],
