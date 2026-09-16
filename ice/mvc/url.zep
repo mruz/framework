@@ -26,8 +26,12 @@ class Url
     public function href(string uri = null) -> string
     {
         var staticUri;
-        let staticUri = rtrim(this->staticUri, "/");
-        if uri[0] != '/' {
+        char first;
+
+        let staticUri = rtrim(this->staticUri, "/"),
+            first = uri[0];
+
+        if first != '/' {
             let staticUri .= "/";
         }
         return staticUri . uri;
