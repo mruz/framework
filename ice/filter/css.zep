@@ -30,14 +30,19 @@ class Css
     public function sanitize(string css) -> string
     {
         string min = "";
-        char c, next;
+        char c, next, prev;
         int i, tmp = 0, state = 1, inParen = 0;
 
         for i, c in css {
-            let next = css[i + 1];
+            let next = css[i + 1],
+                prev = 0;
+
+            if i > 0 {
+                let prev = css[i - 1];
+            }
 
             //closing comment
-            if c == '/' && css[i - 1] == '*' {
+            if c == '/' && prev == '*' {
                 continue;
             }
 
