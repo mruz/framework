@@ -23,6 +23,8 @@ jobs:
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
           MYSQL_DATABASE: ice_test
+          MYSQL_USER: ice
+          MYSQL_PASSWORD: ice
       mongodb:
         image: mongo
         env:
@@ -71,7 +73,7 @@ jobs:
       - name: Create test databases
         shell: bash
         run: |
-          echo "source tests/ci/ice_test.sql;" | mysql -h 127.0.0.1 -u root ice_test
+          echo "source tests/ci/ice_test.sql;" | mysql -h 127.0.0.1 -u ice -pice ice_test
 
       - name: Test Ice
         shell: bash
