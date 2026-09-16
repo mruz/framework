@@ -39,7 +39,7 @@ class Pagination extends Arr
      */
     public function calculate() -> <Pagination>
     {
-        var items, data, total;
+        var items = null, data, total;
         int limit, page, pages, previous, next;
 
         let total = this->get("total");

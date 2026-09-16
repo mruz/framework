@@ -150,6 +150,7 @@ class FastRouter
         var module, handler, action, params, holders, data, route, response;
 
         let
+            module = this->defaultModule,
             handler = this->defaultHandler,
             action = this->defaultAction,
             params = [];

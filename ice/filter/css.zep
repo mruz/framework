@@ -31,7 +31,7 @@ class Css
     {
         string min = "";
         char c, next;
-        int i, tmp, state = 1, inParen = 0;
+        int i, tmp = 0, state = 1, inParen = 0;
 
         for i, c in css {
             let next = css[i + 1];

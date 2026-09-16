@@ -55,7 +55,7 @@ class Version
      */
     public static function get() -> string
     {
-        var suffix;
+        var suffix = "";
 
         switch self::STAGE {
             case self::DEV:

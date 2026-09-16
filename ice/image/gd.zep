@@ -30,7 +30,7 @@ class Gd extends Image
      */
     public function __construct(string file)
     {
-        var create;
+        var create = null;
 
         if !self::checked {
             // Run the install check
@@ -71,7 +71,7 @@ class Gd extends Image
      */
     public static function check() -> boolean
     {
-        var version;
+        var version = null;
 
         if !function_exists("gd_info") {
             throw new Exception("GD is either not installed or not enabled, check your configuration");
@@ -593,7 +593,7 @@ class Gd extends Image
      */
     protected function saveFunction(string extension, int quality) -> array
     {
-        var tmp, save, type;
+        var tmp, save = null, type = null;
 
         if !extension {
             // Use the current image type

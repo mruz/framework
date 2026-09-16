@@ -148,7 +148,7 @@ class Mongodb implements DbInterface
      */
     public function count(string! from, var filters = []) -> int
     {
-        var filtered, collection, result;
+        var filtered = [], collection, result;
 
         switch typeof filters {
             case "object":
@@ -190,7 +190,7 @@ class Mongodb implements DbInterface
      */
     public function select(string! from, var filters = [], array options = [], array fields = [])
     {
-        var filtered, collection, result;
+        var filtered = [], collection, result;
 
         switch typeof filters {
             case "object":
