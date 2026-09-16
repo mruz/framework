@@ -9,7 +9,7 @@ use Ice\Exception;
  * @package     Ice/Image
  * @category    Component
  * @author      Ice Team
- * @copyright   (c) 2014-2025 Ice Team
+ * @copyright   (c) Ice Team
  * @license     http://iceframework.org/license
  */
 abstract class Image

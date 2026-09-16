@@ -13,7 +13,7 @@ use Ice\Http\Response\ResponseInterface;
  * @package     Ice/Http
  * @category    Component
  * @author      Ice Team
- * @copyright   (c) 2014-2025 Ice Team
+ * @copyright   (c) Ice Team
  * @license     http://iceframework.org/license
  */
 class Response implements ResponseInterface
