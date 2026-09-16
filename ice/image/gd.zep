@@ -270,6 +270,7 @@ class Gd extends Image
     protected function doFlip(int direction) -> void
     {
         var flipped;
+        int x, y;
 
         // Create the flipped image
         let flipped = this->create(this->width, this->height);
@@ -278,7 +279,7 @@ class Gd extends Image
         this->loadImage();
 
         if direction === Image::HORIZONTAL {
-            int x = 0;
+            let x = 0;
 
             while x < this->width {
                 // Flip each row from top to bottom
@@ -287,7 +288,7 @@ class Gd extends Image
                 let x++;
             }
         } else {
-            int y = 0;
+            let y = 0;
 
             while y < this->height {
                 // Flip each column from left to right

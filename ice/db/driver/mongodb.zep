@@ -62,12 +62,11 @@ class Mongodb implements DbInterface
     public function getDateTime(value = null, model = false)
     {
         var date;
+        long tmp;
 
         if typeof value == "object" && value instanceof \MongoDB\BSON\UTCDateTime {
             let date = value;
         } else {
-            long tmp;
-
             switch typeof value {
                 case "NULL":
                     let tmp = time() * 1000,
